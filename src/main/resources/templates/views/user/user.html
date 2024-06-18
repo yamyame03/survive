@@ -1,0 +1,33 @@
+<th:block th:include="@{_header.html}"/>
+    <main class="container">
+        <div class="post-list">
+            <h2>통수유저목록</h2>
+            <span style="display: block; text-align: right; margin-bottom: 10px;">
+            	<a th:href="@{./userRegister}">등록하기</a>
+            </span>
+			<table border="#">
+				<tr class="list top">
+					<td>번호</td>
+					<td>닉[고유번호]</td>
+					<td>사유</td>
+					<td>관리</td>
+				</tr>
+				<tr class="list content" th:each="list, i : ${lists}">
+					<td>[[${i.size - i.index}]]</td>
+					<td class="nick">
+						[[${list.nick}]]
+						<label>[[${list.number}]]</label>
+					</td>
+					<td>
+						[[${list.reason}]]
+					</td>
+					<td>
+						<a href="#">수정</a> |
+						<a href="#">삭제</a>
+					</td>
+				</tr>
+			</table>
+        </div>
+    </main>
+<th:block th:include="@{_footer.html}"/>
+

@@ -1,0 +1,75 @@
+<th:block th:include="@{_header.html}"/>
+<script>
+	$(document).ready(function(){
+		let total = $("input[id=total]").val();
+		let page = window.location.search;
+		let pageNum = page.split("=")[1];
+		
+		if(pageNum == null){
+			pageNum = 1;
+		}
+		
+		let postCount = ((pageNum - 1) * 5);
+		
+		for(let i = 0; i < total; i++){
+			$(".no").eq(i).text(total - (postCount + i ));
+		}
+	});
+</script>
+    <main class="container">
+        <div class="post-list">
+            <h2>기프트코드 목록</h2>
+            <span style="display: block; text-align: right; margin-bottom: 10px;">
+            	<a th:href="@{./codeRegister}">등록하기</a>
+            	<input type="hidden" name="total" id="total" th:value="${total}">
+            </span>
+			<table border="#">
+				<tr class="list top">
+					<td>번호</td>
+					<td>기프트코드</td>
+					<td>유효기간</td>
+					<td>링크</td>
+					<td sec:authorize="hasRole('ROLE_2')">관리</td>
+				</tr>
+				<tr class="list content" th:each="list, i : ${lists}">
+					<td class="no"></td>
+					<td>
+						[[${list.code}]]
+						<label th:if="${list.unixtime > currentUnixTime}" style="color:blue;">[사용가능]</label>
+						<label th:unless="${list.unixtime > currentUnixTime}" style="color:red;">[사용불가]</label>
+					</td>
+					<td>[[${list.date}]]</td>
+					<td><a th:href="@{'https://gift.survivorio.com/?code=' + ${list.code}}" target='_blank'>등록하기</a></td>
+					<td sec:authorize="hasRole('ROLE_2')">
+						<a th:href="@{'./codeModify?cno=' + ${list.cno}}">수정</a> |
+						<a class="btnDelete" th:href="@{'./codeDelete?cno=' + ${list.cno}}">삭제</a>
+					</td>
+				</tr>
+			</table>
+            <div class="pagination">
+                <ul>
+                    <li>
+                       	<a th:href="@{'/code?page=' + ${groups[0]}}">이전</a>
+                    </li>
+                    <li th:each="num : ${#numbers.sequence(groups[2], groups[3])}" th:if="${groups[3] != 0}">
+                    	 <!-- 보고 있는 페이지를 파란색 볼드체로 함 -->
+                    	<th:block th:if="${currentPage == num}">
+                        	<a th:href="@{'/code?page=' + ${num}}" th:text="${num}" style="font-weight: bold; color:blue"></a>
+                        </th:block>
+                         <!-- 다른 페이지는 기본 -->
+				        <th:block th:unless="${currentPage == num}">
+				            <a th:href="@{'/code?page=' + ${num}}" th:text="${num}"></a>
+				        </th:block>                        
+                    </li>
+                    <li th:unless="${groups[3] != 0}">
+                    	<a th:href="@{'/code?page=1'}" style="font-weight: bold; color:blue">1</a>
+                    </li>
+                    <li>
+                        <a th:href="@{'/code?page=' + ${groups[1]}}">다음</a>
+                    </li>
+                </ul>
+            </div>			
+        </div>
+    </main>
+<th:block th:include="@{_footer.html}"/>
+

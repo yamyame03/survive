@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>탕탕특공대</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+	<link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script src="https://cdn.iamport.kr/v1/iamport.js"></script>
+	<script th:src="@{/js/datepicker.js}"></script>
+	<script th:src="@{/js/jquery.js}"></script>
+	<script th:src="@{/js/payments.js}"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+        	<div class="header-img">
+	        	<img th:src="@{./img/img.png}"></img>        	
+        	</div>
+        	<nav>
+                <ul class="nav-list">
+                    <!--<li><a href="#">홈</a></li>-->
+                    <!--<li><a href="#">공지사항</a></li>-->
+                    <!--<li><a href="#">게시판</a></li>-->
+                    <!--<li><a href="#">문의하기</a></li>-->
+					<li><a th:href="@{/use}">사용방법</a></li>
+                   	<li><a th:href="@{/code}">쿠폰목록</a></li>
+                   	<li><a th:href="@{/product}">상품목록</a></li>
+                   	<li style="display: none;"><a th:href="@{/user}">통수유저목록</a></li>
+					<li>
+						<a th:href="@{/memberSignIn}" sec:authorize="isAnonymous()">로그인</a>
+						<a th:href="@{/memberLogOut}" sec:authorize="isAuthenticated()">로그아웃</a>
+					</li>	
+                </ul>
+            </nav>
+        </div>
+    </header>
