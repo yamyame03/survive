@@ -1,6 +1,7 @@
 package kr.co.survivor.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,6 +16,10 @@ public class ProductService {
 	@Autowired
 	private ProductDAO dao;
 	
+	public int insertPayment(PaymentVO pvo) {
+		return dao.insertPayment(pvo);
+	}
+	
 	public List<ProductVO> selectProducts(){
 		return dao.selectProducts();
 	}
@@ -23,8 +28,9 @@ public class ProductService {
 		return dao.selectProduct(pno);
 	};
 	
-	public void insertPayment(PaymentVO pvo) {
-		dao.insertPayment(pvo);
-	}
+	public PaymentVO selectOrder(int pno) {
+		return dao.selectOrder(pno);
+	};
+
 	
 }

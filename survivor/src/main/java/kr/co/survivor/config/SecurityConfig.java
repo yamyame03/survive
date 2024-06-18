@@ -40,6 +40,7 @@ public class SecurityConfig {
             .requestMatchers(new AntPathRequestMatcher("/order/payments")).permitAll()
             .requestMatchers(new AntPathRequestMatcher("/cart")).permitAll()
             .requestMatchers(new AntPathRequestMatcher("/order")).permitAll()
+            .requestMatchers(new AntPathRequestMatcher("/orderComplete")).permitAll()
             .requestMatchers(new AntPathRequestMatcher("/userRegister")).permitAll()
             .requestMatchers(new AntPathRequestMatcher("/memberSignIn")).permitAll()
             .requestMatchers(new AntPathRequestMatcher("/memberSignUp")).permitAll()

@@ -28,6 +28,19 @@ $(document).ready(function(){
 	let currentDate = new Date().toISOString().substring(0, 10);
 	
 	$("#date").val(currentDate);
+	
+	$(".btnPayments").click(function(e){
+		let buyerName = $("input[class=buyerName]").val();
+		let buyerEmail = $("input[class=buyerEmail]").val();
+		let zip = $("#zip").val();
+		let addr1 = $('#addr1').val();
+        if (buyerName && buyerEmail && zip && addr1) {
+            requestPay();
+        } else {
+            alert('입력해주세요.');
+        }
+	});
+		
 });
 
 

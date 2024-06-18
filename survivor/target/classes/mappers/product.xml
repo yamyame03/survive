@@ -4,6 +4,24 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.co.survivor.dao.ProductDAO">
 
+	<insert id="insertPayment">
+		<selectKey keyProperty="id" order="AFTER" resultType="int">
+					select last_insert_id();
+		</selectKey>	
+		INSERT INTO `payment` set 
+							`name` 			= #{name},
+							`email` 		= #{email},
+							`hp` 			= '010-4390-0810',
+							`merchant_uid` 	= #{merchant_uid}, 
+							`type`			= 1, 
+							`zip` 			= #{zip}, 
+							`addr` 			= #{addr},
+							`product_name` 	= #{product_name},
+							`price`			= #{price}, 
+							`result` 		= 1,
+							`date` 			= now(); 
+	</insert>
+	
 	<select id="selectProducts" resultType="kr.co.survivor.vo.ProductVO">
 		SELECT * FROM product;
 	</select>
@@ -12,16 +30,7 @@
 		SELECT * FROM product WHERE pno = #{pno};
 	</select>
 	
-	<insert id="insertPayment">
-		INSERT INTO `payment` set
-								`name` = 'test',
-								`price`= 1000, 
-								`type`= 'card', 
-								`merchant_uid` = #{merchant_uid}, 
-								`date` = '2024-06-17', 
-								`zip` = 2323, 
-								`addr1` = 'test', 
-								`addr2`= 'test';
-	</insert>
-	
+	<select id="selectOrder" resultType="kr.co.survivor.vo.PaymentVO">
+		SELECT * FROM payment WHERE no = #{no};
+	</select>
 </mapper>

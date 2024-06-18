@@ -29,7 +29,6 @@ public class ProductController {
 		
 		model.addAttribute("lists", lists);
 		
-		
 		return "views/product/product";
 	}
 	
@@ -40,7 +39,7 @@ public class ProductController {
 	
 	@GetMapping("/order")
 	public String order(Model model, int pno) {
-		System.out.println("pno : " + pno);
+		
 		ProductVO product = service.selectProduct(pno);
 		
 		model.addAttribute("product", product);
@@ -48,15 +47,47 @@ public class ProductController {
 		return "views/product/order";
 	}
 	
+	@GetMapping("/orderComplete")
+	public String orderComplete(Model model, int no) {
+		
+		System.out.println("no : " + no);
+		
+		PaymentVO order = service.selectOrder(no);
+		
+		int type = order.getType();
+		
+		String process = "";
+		
+		if(type == 1) {
+			process = "신용카드";
+		}else {
+			process = "무통장입금";
+		}
+		
+		model.addAttribute("order", order);
+		model.addAttribute("process", process);
+		
+		return "views/product/orderComplete";
+	}
+	
 	@ResponseBody
 	@PostMapping("/order/payments")
-	public Map<String, String> orderPayments(@RequestParam String imp_uid, @RequestParam String merchant_uid, @RequestParam String amount, PaymentVO pvo) {
+	public Map<String, Integer> orderPayments(@RequestParam String imp_uid, 
+												@RequestParam String merchant_uid, 
+												@RequestParam String amount,
+												@RequestParam String name,
+												@RequestParam String email,
+												@RequestParam String product_name,
+												@RequestParam int price,
+												@RequestParam int zip,
+												@RequestParam String addr,
+												PaymentVO pvo) {
 		
 		service.insertPayment(pvo);
 		
-	    Map<String, String> map = new HashMap<>();
-	    
-	    String data = "결제성공!";
+		int data = pvo.getId();
+		
+	    Map<String, Integer> map = new HashMap<>();
 	    
 	    map.put("data", data);
 	    

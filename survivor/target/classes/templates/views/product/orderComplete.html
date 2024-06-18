@@ -1,0 +1,43 @@
+<th:block th:include="@{_header.html}"/>
+    <main class="container">
+    	<section class="order-info">
+	        <h2 name="h2">상품사진</h2>
+	        <div class="product-info">
+	            <img src="./img/thumb-7YWM7Iqk7Yq4_640x.jpg" alt="상품 이미지">
+				<table class="order-table">
+					<tr>
+						<td>주문자명</td>
+						<td class="name">[[${order.name}]]</td>
+					</tr>
+					<tr>
+						<td>이메일</td>
+						<td class="email">[[${order.email}]]</td>
+					</tr>
+					<tr>
+						<td>상품명</td>
+						<td class="product_name">[[${order.product_name}]]</td>
+					</tr>
+					<tr>
+						<td>가격</td>
+						<td class="price">[[${order.price}]]</td>
+					</tr>
+					<tr>
+						<td>결제방법</td>
+						<td class="type">[[${process}]]</td>
+					</tr>
+					<tr>
+						<td>결제일</td>
+						<td class="date">[[${order.date}]]</td>
+					</tr>
+					
+					<tr>
+						<td>주소</td>
+						<td>([[${order.zip}]]) [[${order.addr}]]</td>
+					</tr>					
+				</table>
+				<button type="submit" class="btnPayments">결제취소</button>
+	        </div>
+        </section>
+    </main>
+<th:block th:include="@{_footer.html}"/>
+
