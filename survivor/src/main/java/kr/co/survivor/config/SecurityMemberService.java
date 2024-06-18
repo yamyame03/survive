@@ -1,4 +1,4 @@
-package kr.co.user.config;
+package kr.co.survivor.config;
 
 import java.util.Optional;
 
@@ -8,8 +8,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import kr.co.user.entity.MemberEntity;
-import kr.co.user.repo.MemberRepository;
+import kr.co.survivor.entity.MemberEntity;
+import kr.co.survivor.repo.MemberRepository;
 
 @Service
 public class SecurityMemberService  implements UserDetailsService{

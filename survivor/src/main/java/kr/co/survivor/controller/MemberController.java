@@ -1,4 +1,4 @@
-package kr.co.user.controller;
+package kr.co.survivor.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import jakarta.servlet.http.HttpServletRequest;
-import kr.co.user.service.MemberService;
-import kr.co.user.vo.MemberVO;
+import kr.co.survivor.service.MemberService;
+import kr.co.survivor.vo.MemberVO;
 
 @Controller
 public class MemberController {

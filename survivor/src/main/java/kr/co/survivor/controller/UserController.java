@@ -1,4 +1,4 @@
-package kr.co.user.controller;
+package kr.co.survivor.controller;
 
 import java.util.List;
 
@@ -13,10 +13,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
-import kr.co.user.service.MemberService;
-import kr.co.user.service.UserService;
-import kr.co.user.vo.MemberVO;
-import kr.co.user.vo.UserVO;
+import kr.co.survivor.service.MemberService;
+import kr.co.survivor.service.UserService;
+import kr.co.survivor.vo.MemberVO;
+import kr.co.survivor.vo.UserVO;
 
 @Controller
 public class UserController {

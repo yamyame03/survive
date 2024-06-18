@@ -1,4 +1,4 @@
-package kr.co.user.controller;
+package kr.co.survivor.controller;
 
 import java.time.LocalDate;
 import java.time.ZoneOffset;
@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import jakarta.servlet.http.HttpServletRequest;
-import kr.co.user.service.CodeService;
-import kr.co.user.vo.CodeVO;
+import kr.co.survivor.service.CodeService;
+import kr.co.survivor.vo.CodeVO;
 
 @Controller
 public class CodeController {

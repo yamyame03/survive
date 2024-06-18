@@ -1,4 +1,4 @@
-package kr.co.user.config;
+package kr.co.survivor.config;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -8,7 +8,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import kr.co.user.entity.MemberEntity;
+import kr.co.survivor.entity.MemberEntity;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;

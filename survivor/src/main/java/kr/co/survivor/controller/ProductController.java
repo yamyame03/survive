@@ -1,4 +1,4 @@
-package kr.co.user.controller;
+package kr.co.survivor.controller;
 
 import java.util.HashMap;
 import java.util.List;
@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import kr.co.user.service.ProductService;
-import kr.co.user.vo.PaymentVO;
-import kr.co.user.vo.ProductVO;
+import kr.co.survivor.service.ProductService;
+import kr.co.survivor.vo.PaymentVO;
+import kr.co.survivor.vo.ProductVO;
 
 @Controller
 public class ProductController {

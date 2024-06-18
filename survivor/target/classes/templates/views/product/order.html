@@ -1,0 +1,56 @@
+<th:block th:include="@{_header.html}"/>
+<script>
+	$(document).ready(function(){
+		$(".btnPayments").click(function(e){
+			
+			let buyerName = $(".buyerName").val();
+			let buyerEmail = $(".buyerEmail").val();
+			let zip = $(".zip").val();
+			let addr1 = $('.addr1').val();
+			
+	        if (buyerName && buyerEmail && zip && addr1) {
+	            requestPay();
+	        } else {
+	            alert('입력해주세요.');
+	        }
+		});
+	});
+</script>
+    <main class="container">
+    	<section class="order-info">
+	        <h2 name="h2">상품 결제</h2>
+	        <div class="product-info">
+	            <img th:src="@{'./img/'+${product.img}}" alt="상품 이미지">
+				<table class="order-table">
+					<tr>
+						<td>상품명</td>
+						<td class="productName">[[${product.name}]]</td>
+					</tr>
+					<tr>
+						<td>가격</td>
+						<td class="productPrice">[[${product.price}]]</td>
+					</tr>
+					<tr>
+						<td>이름</td>
+						<td class="buyerName"><input type="text"></td>
+					</tr>
+					<tr>
+						<td>이메일</td>
+						<td class="buyerEmail"><input type="text"></td>
+					</tr>
+					<tr>
+						<td>주소</td>
+						<td>
+							<input type="text" id="zip" class="zip">
+							<input type="button" id="postCode" value="검색">
+							<input type="text" class="addr1">
+							<input type="text" class="addr2">
+						</td>
+					</tr>					
+				</table>
+				<button type="submit" class="btnPayments">결제</button>
+	        </div>
+        </section>
+    </main>
+<th:block th:include="@{_footer.html}"/>
+

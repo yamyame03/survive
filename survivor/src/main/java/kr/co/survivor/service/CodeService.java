@@ -1,12 +1,12 @@
-package kr.co.user.service;
+package kr.co.survivor.service;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import kr.co.user.dao.CodeDAO;
-import kr.co.user.vo.CodeVO;
+import kr.co.survivor.dao.CodeDAO;
+import kr.co.survivor.vo.CodeVO;
 
 @Service
 public class CodeService {

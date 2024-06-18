@@ -1,4 +1,4 @@
-package kr.co.user.config;
+package kr.co.survivor.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -11,7 +11,7 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.header.writers.frameoptions.XFrameOptionsHeaderWriter;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
-import kr.co.user.repo.MemberRepository;
+import kr.co.survivor.repo.MemberRepository;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor

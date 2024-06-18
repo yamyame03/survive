@@ -1,4 +1,4 @@
-package kr.co.user.vo;
+package kr.co.survivor.vo;
 
 import org.springframework.data.annotation.Id;
 

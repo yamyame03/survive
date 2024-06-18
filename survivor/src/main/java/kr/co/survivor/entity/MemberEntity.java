@@ -1,4 +1,4 @@
-package kr.co.user.entity;
+package kr.co.survivor.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

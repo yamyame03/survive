@@ -1,11 +1,11 @@
-package kr.co.user.dao;
+package kr.co.survivor.dao;
 
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
-import kr.co.user.vo.UserVO;
+import kr.co.survivor.vo.UserVO;
 
 @Mapper
 @Repository
