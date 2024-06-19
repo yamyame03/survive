@@ -13,10 +13,11 @@ function info(){
 	let productPrice 	= parseInt(document.getElementsByClassName("productPrice")[0].textContent);
 	let buyerName 		= document.querySelector("input[class='buyerName']").value;
 	let buyerEmail 		= document.querySelector("input[class='buyerEmail']").value;
+	let proNo			= document.querySelector("input[class='proNo']").value;
 	let zip 			= document.getElementById("zip").value;
 	let addr1 			= document.getElementById("addr1").value;
 	let addr2 			= document.getElementById("addr2").value;
-	return [productName, productPrice, buyerName, buyerEmail, zip, addr1, addr2];
+	return [productName, productPrice, buyerName, buyerEmail, zip, addr1, addr2, proNo];
 }
 
 function requestPay() {
@@ -29,7 +30,8 @@ function requestPay() {
 	 let zip 			= information[4];
 	 let addr1 			= information[5];
 	 let addr2 			= information[6];
-	 console.log(productPrice);
+	 let proNo 			= information[7];
+	 
      IMP.request_pay(
          {
         	//KG이니시스 pg파라미터 값
@@ -66,12 +68,14 @@ function requestPay() {
 								// 우편번호
 								"zip" : zip,
 								// 주소
-								"addr" : addr1 + addr2
+								"addr" : addr1 + addr2,
+								// 상품번호
+								"proNo" : proNo
 								};
 								
                  $.ajax({
 					url : "/Survivor.io/order/payments",
-					method : "post",
+					method : "POST",
 					data: jsonData,
 					dataType : "json",
 					success : function(data){

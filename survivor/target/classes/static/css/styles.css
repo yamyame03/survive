@@ -387,7 +387,7 @@ a:hover {
     border-radius: 5px;
 }
 
-.btnPayments {
+.btnPayments, .btnPaymentsCancel {
 	width: 100%;
     margin-top: 10px;
     background-color: #007bff;
@@ -402,8 +402,6 @@ a:hover {
 button[class="btnPayments"]:hover {
     background-color: #0056b3;
 }
-
-
 
 button {
     background-color: #007bff;

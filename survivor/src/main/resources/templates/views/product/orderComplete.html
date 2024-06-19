@@ -3,7 +3,10 @@
     	<section class="order-info">
 	        <h2 name="h2">상품사진</h2>
 	        <div class="product-info">
-	            <img src="./img/thumb-7YWM7Iqk7Yq4_640x.jpg" alt="상품 이미지">
+	            <img th:src="@{'./img/' + ${order.img}}" alt="상품 이미지">
+	            <input type="hidden" class="merchant_uid" th:value="${order.merchant_uid}">
+	            <input type="hidden" class="price" th:value="${order.price}">
+	            <input type="hidden" class="no" th:value="${order.no}">
 				<table class="order-table">
 					<tr>
 						<td>주문자명</td>
@@ -33,9 +36,14 @@
 					<tr>
 						<td>주소</td>
 						<td>([[${order.zip}]]) [[${order.addr}]]</td>
+					</tr>
+					<tr>
+						<td>상태</td>
+						<td th:if="${order.result == 1}" style="font-weight: bold">결제완료</td>
+						<td th:unless="${order.result == 1}" style="font-weight: bold">취소완료</td>
 					</tr>					
 				</table>
-				<button type="submit" class="btnPayments">결제취소</button>
+				<button type="submit" class="btnPaymentsCancel" th:if="${order.result == 1}">결제취소</button>
 	        </div>
         </section>
     </main>

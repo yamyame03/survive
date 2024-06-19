@@ -17,6 +17,7 @@
 							`zip` 			= #{zip}, 
 							`addr` 			= #{addr},
 							`product_name` 	= #{product_name},
+							`proNo` 		= #{proNo},
 							`price`			= #{price}, 
 							`result` 		= 1,
 							`date` 			= now(); 
@@ -31,6 +32,17 @@
 	</select>
 	
 	<select id="selectOrder" resultType="kr.co.survivor.vo.PaymentVO">
-		SELECT * FROM payment WHERE no = #{no};
+		SELECT pay.*, prod.img AS img FROM payment AS pay
+		JOIN product AS prod
+		ON pay.proNo = prod.pno WHERE no = #{no};
 	</select>
+	
+	<select id="selectApiKey" resultType="kr.co.survivor.vo.ApiKeyVO">
+		select * from apiKey;
+	</select>
+	
+	<update id="updatePayments">
+		UPDATE `payment` SET `result` = 2 WHERE `no` = #{no}; 
+	</update>
+	
 </mapper>

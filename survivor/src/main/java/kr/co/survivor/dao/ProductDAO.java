@@ -6,6 +6,7 @@ import java.util.Map;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
+import kr.co.survivor.vo.ApiKeyVO;
 import kr.co.survivor.vo.PaymentVO;
 import kr.co.survivor.vo.ProductVO;
 
@@ -16,5 +17,6 @@ public interface ProductDAO {
 	public List<ProductVO> selectProducts();
 	public ProductVO selectProduct(int pno);
 	public PaymentVO selectOrder(int no);
-	
+	public ApiKeyVO selectApiKey();
+	public void updatePayments(PaymentVO pvo);
 }

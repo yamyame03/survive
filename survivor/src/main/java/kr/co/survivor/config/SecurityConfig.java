@@ -38,6 +38,7 @@ public class SecurityConfig {
             .requestMatchers(new AntPathRequestMatcher("/use")).permitAll()
             .requestMatchers(new AntPathRequestMatcher("/product")).permitAll()
             .requestMatchers(new AntPathRequestMatcher("/order/payments")).permitAll()
+            .requestMatchers(new AntPathRequestMatcher("/order/paymentsCancel")).permitAll()
             .requestMatchers(new AntPathRequestMatcher("/cart")).permitAll()
             .requestMatchers(new AntPathRequestMatcher("/order")).permitAll()
             .requestMatchers(new AntPathRequestMatcher("/orderComplete")).permitAll()
@@ -52,7 +53,8 @@ public class SecurityConfig {
             )
         .csrf((csrf) -> csrf
             .ignoringRequestMatchers(new AntPathRequestMatcher("/h2-console/**"))
-            .ignoringRequestMatchers("/order/payments"))
+            .ignoringRequestMatchers("/order/payments")
+        	.ignoringRequestMatchers("/order/paymentsCancel"))
         .headers((headers) -> headers
             .addHeaderWriter(new XFrameOptionsHeaderWriter(
                 XFrameOptionsHeaderWriter.XFrameOptionsMode.SAMEORIGIN)))

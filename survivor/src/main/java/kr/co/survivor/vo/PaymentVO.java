@@ -20,7 +20,11 @@ public class PaymentVO {
 	private int zip;
 	private String addr;
 	private String product_name;
+	private int proNo;
 	private int price;
 	private int result;
 	private String date;
+	
+	// 추가필드
+	private String img;
 }
