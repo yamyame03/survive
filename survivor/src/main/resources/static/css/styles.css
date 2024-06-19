@@ -328,6 +328,82 @@ a:hover {
 	width:30%;
 }
 
+.calculator-container {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.image-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.calculator {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.calculator h3 {
+    margin-bottom: 10px;
+}
+
+input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.result {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f0f0f0;
+}
+
+.calculator-table td:nth-child(1) {
+	width: 30%;
+	font-weight: bold;
+
+}
+
+.calculator-table tr:nth-child(2) td:nth-child(2) {
+	border-top: none;
+    border-left: none;
+    border-bottom: none;
+}
+
+
+.calculator-li {
+    display: flex;
+    align-items: center; /* 수직 중앙 정렬 */
+    margin-bottom: 10px; /* 각 요소 사이 여백 */
+    box-shadow: none;
+}
+
+.calculator-li img {
+    width: 50px; /* 이미지 너비 조정 */
+    height: 55px; /* 이미지 높이 자동 조정 */
+    margin-right: 10px; /* 이미지와 텍스트 사이 여백 */
+    border-radius: 50%; /* 이미지를 원형으로 만들기 */
+}
+
+.calculator-li p {
+    margin: 0; /* 문단의 기본 마진 제거 */
+}
+
+.calculator-li-check {
+	zoom: 1.5;
+}
+
 #postCode {
 	line-height: 20px;
 	background-color: #007bff;
@@ -387,7 +463,7 @@ a:hover {
     border-radius: 5px;
 }
 
-.btnPayments, .btnPaymentsCancel {
+.btnPayments, .btnPaymentsCancel, .btnCalculator {
 	width: 100%;
     margin-top: 10px;
     background-color: #007bff;

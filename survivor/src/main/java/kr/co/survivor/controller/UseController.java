@@ -23,8 +23,12 @@ public class UseController {
 	
 	@GetMapping("/use")
 	public String user(Model model) {
-		
 		return "views/use/use";
+	}
+	
+	@GetMapping("/critical")
+	public String critical(Model model) {
+		return "views/use/critical";
 	}
 
 }

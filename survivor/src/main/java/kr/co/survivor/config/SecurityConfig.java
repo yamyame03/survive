@@ -32,23 +32,24 @@ public class SecurityConfig {
         
         http
         .authorizeHttpRequests((authorizeHttpRequests) -> authorizeHttpRequests
-            .requestMatchers(new AntPathRequestMatcher("/code")).permitAll()
-            .requestMatchers(new AntPathRequestMatcher("/codeRegister")).permitAll()
-            .requestMatchers(new AntPathRequestMatcher("/user")).permitAll()
-            .requestMatchers(new AntPathRequestMatcher("/use")).permitAll()
-            .requestMatchers(new AntPathRequestMatcher("/product")).permitAll()
-            .requestMatchers(new AntPathRequestMatcher("/order/payments")).permitAll()
-            .requestMatchers(new AntPathRequestMatcher("/order/paymentsCancel")).permitAll()
-            .requestMatchers(new AntPathRequestMatcher("/cart")).permitAll()
-            .requestMatchers(new AntPathRequestMatcher("/order")).permitAll()
-            .requestMatchers(new AntPathRequestMatcher("/orderComplete")).permitAll()
-            .requestMatchers(new AntPathRequestMatcher("/userRegister")).permitAll()
-            .requestMatchers(new AntPathRequestMatcher("/memberSignIn")).permitAll()
-            .requestMatchers(new AntPathRequestMatcher("/memberSignUp")).permitAll()
-            .requestMatchers(new AntPathRequestMatcher("/css/**")).permitAll()
-            .requestMatchers(new AntPathRequestMatcher("/img/**")).permitAll()
-            .requestMatchers(new AntPathRequestMatcher("/js/**")).permitAll()
-            .requestMatchers(new AntPathRequestMatcher("/error")).permitAll()
+            .requestMatchers(new AntPathRequestMatcher("/code"), 
+            				new AntPathRequestMatcher("/critical"),
+            				new AntPathRequestMatcher("/codeRegister"),
+            				new AntPathRequestMatcher("/user"),
+            				new AntPathRequestMatcher("/use"),
+            				new AntPathRequestMatcher("/product"),
+            				new AntPathRequestMatcher("/order/payments"),
+            				new AntPathRequestMatcher("/order/paymentsCancel"),
+            				new AntPathRequestMatcher("/cart"),
+            				new AntPathRequestMatcher("/order"),
+            				new AntPathRequestMatcher("/orderComplete"),
+            				new AntPathRequestMatcher("/userRegister"),
+            				new AntPathRequestMatcher("/memberSignIn"),
+            				new AntPathRequestMatcher("/memberSignUp"),
+            				new AntPathRequestMatcher("/css/**"),
+            				new AntPathRequestMatcher("/js/**"),
+            				new AntPathRequestMatcher("/img/**"),
+            				new AntPathRequestMatcher("/error")).permitAll()
             .anyRequest().hasRole("2")
             )
         .csrf((csrf) -> csrf
