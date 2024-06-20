@@ -1,0 +1,27 @@
+<th:block th:include="@{_header.html}"/>
+<script>
+	$(document).ready(function(){
+		$('button[class=btnEssence]').click(function(){
+			console.log($('.essence-container > input').length);
+		});
+	});
+</script>
+    <main class="calculator-container">
+        <section class="instructions">
+            <h2>에센스</h2>
+        </section>
+        <section class="essence">
+			<div class="essence-container">
+				<input type="checkbox" value="normal"><label>일반 특공대</label>
+				<input type="checkbox" value="special"><label>S급 특공대</label>
+			</div>
+			<div class="level">
+				<input type="text" placeholder="start">
+				<span>~</span>
+				<input type="text" placeholder="end">
+			</div>
+			<button class="btnEssence">계산하기</button>
+        </section>
+    </main>
+<th:block th:include="@{_footer.html}"/>
+

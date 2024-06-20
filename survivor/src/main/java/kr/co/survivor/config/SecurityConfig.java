@@ -34,6 +34,7 @@ public class SecurityConfig {
         .authorizeHttpRequests((authorizeHttpRequests) -> authorizeHttpRequests
             .requestMatchers(new AntPathRequestMatcher("/code"), 
             				new AntPathRequestMatcher("/critical"),
+            				new AntPathRequestMatcher("/essence"),
             				new AntPathRequestMatcher("/codeRegister"),
             				new AntPathRequestMatcher("/user"),
             				new AntPathRequestMatcher("/use"),

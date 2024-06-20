@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.survivor.dao.UseDAO">
+ 
+	<select id="selectCharacter" resultType="kr.co.survivor.vo.CharacterVO">
+		SELECT * FROM `character` WHERE `type` = 'character' LIMIT #{num},5;
+	</select>
+  
+  	<select id="selectGen" resultType="kr.co.survivor.vo.CharacterVO">
+		SELECT * FROM `character` WHERE `type` = 'gen';
+	</select>
+	
+  	<select id="selectEquip" resultType="kr.co.survivor.vo.CharacterVO">
+		SELECT * FROM `character` WHERE `type` = 'equip';
+	</select>	
+</mapper>

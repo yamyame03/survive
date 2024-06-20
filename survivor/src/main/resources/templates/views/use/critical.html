@@ -1,4 +1,12 @@
 <th:block th:include="@{_header.html}"/>
+<script>
+
+$(document).ready(function(){
+
+    
+});
+
+</script>
     <main class="calculator-container">
         <section class="instructions">
             <h2>치명타 확률 계산</h2>
@@ -7,85 +15,69 @@
         	<table class="calculator-table">
 				<tr>
 					<td>지구진화</td>
-					<td>
-						<input type="checkbox">
-						8%
+					<td th:each="character : ${characters_Gen}" style="display: flex; place-content: center; border-left: none;">
+						<input type="checkbox" class="calculator-li-check" th:value="${character.percent}">
+						<img alt="" th:src="'./img/' + ${character.img}" style="width: 50px; height: 55px; margin-right: 10px; border-radius: 50%;">
 					</td>
 				</tr>  
 				<tr>
 					<td>특공대</td>
 					<td style="display: flex;">
-						<ul style="margin-right: 45px; margin-left: 10px;">
-							<li class="calculator-li">
-								<input type="checkbox" class="calculator-li-check">
-								<img alt="" src="./img/-E46dxgQgCGX-esO7P6X7HoXoUHx34TooNI_AnhM2f8de3su2IhXVBpZNOiSCgdxS4vGB0Jjh1rUI89SIPdeRw.jpg">
-								<p>헤롱이 Lv.80</p>
-							</li>
-							<li class="calculator-li">
-								<input type="checkbox" class="calculator-li-check">
-								<img alt="" src="./img/L4FaDnQIn_1BswrFdLKWhDTSaurhljAZK6pd6vdvaT9wogsdPSUzimWOPftrPW_c0ZQiheCdvDErJiQhNt3UkQ.jpg">
-								<p>탕순이 Lv.80</p>
-							</li>
-							<li class="calculator-li">
-								<input type="checkbox" class="calculator-li-check">
-								<img alt="" src="./img/iSpoA11hkFlxUhkhiDu68qTtQzUEedmS-IWU5ixZa0mhvdRk0ebnXoAwBMjBiH4sjsd-JWkteSe-cClEljHQ2w.jpg">
-								<p>탕철이 Lv.80</p>
-							</li>
-							<li class="calculator-li">
-								<input type="checkbox" class="calculator-li-check">
-								<img alt="" src="./img/jFCWzD6txC0jg9LRNGzGxCE5IpKeqTq2bzUzNXoYes1DfpwgkXxHGXezZQJX1eZlXWfP3NGrbsuAPYgDc6ac9Q.jpg">
-								<p>탕돌이 Lv.120</p>
-							</li>
-							<li class="calculator-li">
-								<input type="checkbox" class="calculator-li-check">
-								<img alt="" src="./img/images.jpg">
-								<p>징징이 Lv.120</p>
-							</li>														
+						<ul style="margin-left: 10px;">
+							<th:block th:each="character : ${characters_1}">
+								<li class="calculator-li">
+									<input type="checkbox" class="calculator-li-check" th:value="${character.percent}">
+									<img alt="" th:src="'./img/' + ${character.img}">
+									<p th:text="${character.cname} + ${character.level}" style="font-size: 14px;"></p>
+								</li>							
+							</th:block>
 						</ul>
-						<ul>
-							<li class="calculator-li">
-								<input type="checkbox" class="calculator-li-check">
-								<img alt="" src="./img/panda.jpg">
-								<p>양사부(양)</p>
-							</li>
-							<li class="calculator-li">
-								<input type="checkbox" class="calculator-li-check">
-								<img alt="" src="./img/panda.jpg">
-								<p>양사부 Lv.120</p>
-							</li>
-							<li class="calculator-li">
-								<input type="checkbox" class="calculator-li-check">
-								<img alt="" src="./img/spong.jpg">
-								<p>스폰지밥 Lv.120</p>
-							</li>
-							<li class="calculator-li">
-								<input type="checkbox" class="calculator-li-check">
-								<img alt="" src="./img/starfish.jpg">
-								<p>뚱이 Lv.120</p>
-							</li>
-							<li class="calculator-li">
-								<input type="checkbox" class="calculator-li-check">
-								<img alt="" src="./img/a4743c731724b5a9ee8978755936cd089f17e489affba0627eb1eb39695f93dd.jpg">
-								<p>다람이 Lv.120</p>
-							</li>														
+						<ul style="margin-left: 45px;">
+							<th:block th:each="character : ${characters_2}">
+								<li class="calculator-li">
+									<input type="checkbox" class="calculator-li-check" th:value="${character.percent}">
+									<img alt="" th:src="'./img/' + ${character.img}">
+									<p th:text="${character.cname} + ${character.level}" style="font-size: 14px;"></p>
+								</li>							
+							</th:block>
 						</ul>						
 					</td>
 				</tr>
 				<tr>
+					<td>장비</td>
+					<td class="equipment">
+						<ul style="margin-left: 10px;">
+							<th:block th:each="character : ${characters_Equip}">
+								<li class="calculator-li">
+									<input type="checkbox" class="calculator-li-check" th:value="${character.percent}">
+									<img alt="" th:src="'./img/' + ${character.img}">
+									<p th:text="${character.cname} + ${character.level}" style="font-size: 14px;"></p>
+								</li>								
+							</th:block>	
+						</ul>							
+					</td>
+				</tr>	
+				<tr>
+					<td>펫</td>
+					<td class="pet">
+						<input type="text" placeholder="펫 치명타 확률 입력">
+					</td>
+				</tr>							
+				<tr>
 					<td>컬렉션</td>
-					<td>
-						<input type="text" value="컬렉션 치명타 확률 입력">
+					<td class="collection">
+						<input type="text" placeholder="컬렉션 치명타 확률 입력">
 					</td>
 				</tr>
+				
 				<tr>
 					<td>치명타 확률</td>
-					<td>
-						<input type="text">
+					<td class="result">
+						<input type="text" placeholder="내 치명타 확률이 표시됩니다." readonly="readonly">			
 					</td>
 				</tr>				        	
         	</table>
         	<button class="btnCalculator">계산</button>
-        	
         </section>
     </main>
 <th:block th:include="@{_footer.html}"/>

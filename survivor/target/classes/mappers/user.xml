@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="kr.co.user.dao.UserDAO">
+<mapper namespace="kr.co.survivor.dao.UserDAO">
  
   <select id="selectUser" resultType="kr.co.survivor.vo.UserVO">
   	select * from `user`;

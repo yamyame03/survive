@@ -342,7 +342,7 @@ a:hover {
     margin-top: 20px;
 }
 
-.calculator {
+.calculator, .essence {
     background-color: #f9f9f9;
     padding: 15px;
     border-radius: 8px;
@@ -351,6 +351,42 @@ a:hover {
 
 .calculator h3 {
     margin-bottom: 10px;
+}
+
+#result {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.essence-container {
+	display: flex; justify-content: center;
+}
+
+.essence-container > input {
+	margin-right: 4px;
+}
+
+.essence-container > label {
+	font-weight: bold;
+}
+
+.essence-container > label:nth-of-type(1) {
+	margin-right: 10px;
+}
+
+.level {
+	display: flex; justify-content: center; margin-top: 25px; align-items: center;
+}
+
+.level > span {
+	margin-left: 10px; margin-right: 10px;
+}
+
+.btnEssence {
+	width: 100%; margin-top: 15px;
 }
 
 input[type="number"] {
@@ -393,7 +429,7 @@ input[type="number"] {
     width: 50px; /* 이미지 너비 조정 */
     height: 55px; /* 이미지 높이 자동 조정 */
     margin-right: 10px; /* 이미지와 텍스트 사이 여백 */
-    border-radius: 50%; /* 이미지를 원형으로 만들기 */
+    border-radius: 30%; /* 이미지를 원형으로 만들기 */
 }
 
 .calculator-li p {

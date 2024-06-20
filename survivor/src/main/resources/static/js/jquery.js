@@ -75,7 +75,40 @@ $(document).ready(function(){
 				
 			});
 		}
-	});		
+	});	
+	
+    $('.btnCalculator').click(function(){
+        let checkbox = $('input[type="checkbox"]:checked');
+        let array = []; // 값을 담을 배열을 초기화합니다.
+
+        checkbox.each(function(){
+            array.push($(this).val());
+        });
+        
+        let pet = parseInt($('td[class=pet] > input[type=text]').val());
+        let collection = parseInt($('td[class=collection] > input[type=text]').val());
+        
+        let total = 0;
+        
+        for(let i = 0; i < array.length; i++){
+        	total += parseInt(array[i]);
+        }
+        
+        let totalSum = total + pet + collection;
+        
+        console.log(totalSum);
+        
+        $('.result > input').val(totalSum);
+    });
+    
+    $('td[class=equipment] > ul li.calculator-li > input[type=checkbox]').change(function(){
+    	let length = $('td[class=equipment] > ul li.calculator-li > input[type=checkbox]:checked').length;
+    	
+        if(length >= 2){
+        	alert("장비는 1개만 클릭해주세요.");
+        	$('td[class=equipment] > ul li.calculator-li > input[type=checkbox]').prop("checked", false);
+        }
+    });		
 });
 
 
