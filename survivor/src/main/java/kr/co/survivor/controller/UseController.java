@@ -1,6 +1,8 @@
 package kr.co.survivor.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
@@ -10,6 +12,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -17,6 +21,7 @@ import kr.co.survivor.service.UseService;
 import kr.co.survivor.service.MemberService;
 import kr.co.survivor.service.UserService;
 import kr.co.survivor.vo.CharacterVO;
+import kr.co.survivor.vo.EssenceVO;
 import kr.co.survivor.vo.MemberVO;
 import kr.co.survivor.vo.UserVO;
 
@@ -35,6 +40,27 @@ public class UseController {
 	public String essence(Model model) {
 		return "views/use/essence";
 	}	
+	
+	@ResponseBody
+	@GetMapping("/essenceCalculator")
+	public Map<String, Object> essence(@RequestParam String type, @RequestParam int startLevel, @RequestParam int endLevel) {
+		
+		EssenceVO data = useService.selectEssence(type, startLevel, endLevel);
+		Map<String, Object> map = new HashMap<>();
+		
+		if(data != null) {
+			String gold = data.getGold() / 1000 + "K";
+			String msg = "true";
+			map.put("msg", msg);
+			map.put("gold", gold);
+			map.put("essence", data.getEssence());
+			return map;
+		}else {
+			String msg = "false";
+			map.put("msg", msg);
+			return map;
+		}
+	}
 	
 	@GetMapping("/critical")
 	public String critical(Model model) {

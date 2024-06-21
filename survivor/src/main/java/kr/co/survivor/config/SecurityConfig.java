@@ -35,6 +35,7 @@ public class SecurityConfig {
             .requestMatchers(new AntPathRequestMatcher("/code"), 
             				new AntPathRequestMatcher("/critical"),
             				new AntPathRequestMatcher("/essence"),
+            				new AntPathRequestMatcher("/essenceCalculator"),
             				new AntPathRequestMatcher("/codeRegister"),
             				new AntPathRequestMatcher("/user"),
             				new AntPathRequestMatcher("/use"),

@@ -1,12 +1,4 @@
 <th:block th:include="@{_header.html}"/>
-<script>
-
-$(document).ready(function(){
-
-    
-});
-
-</script>
     <main class="calculator-container">
         <section class="instructions">
             <h2>치명타 확률 계산</h2>
@@ -60,24 +52,24 @@ $(document).ready(function(){
 				<tr>
 					<td>펫</td>
 					<td class="pet">
-						<input type="text" placeholder="펫 치명타 확률 입력">
+						<input type="text" placeholder="펫 치명타 확률 입력" class="pet">
 					</td>
 				</tr>							
 				<tr>
 					<td>컬렉션</td>
 					<td class="collection">
-						<input type="text" placeholder="컬렉션 치명타 확률 입력">
+						<input type="text" placeholder="컬렉션 치명타 확률 입력" class="collection">
 					</td>
 				</tr>
 				
 				<tr>
 					<td>치명타 확률</td>
 					<td class="result">
-						<input type="text" placeholder="내 치명타 확률이 표시됩니다." readonly="readonly">			
+						<input type="text" placeholder="내 치명타 확률이 표시됩니다." readonly="readonly" class="resultCritical">			
 					</td>
 				</tr>				        	
         	</table>
-        	<button class="btnCalculator">계산</button>
+        	<button class="btnCritical">계산</button>
         </section>
     </main>
 <th:block th:include="@{_footer.html}"/>

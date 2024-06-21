@@ -3,7 +3,6 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.co.survivor.dao.UseDAO">
- 
 	<select id="selectCharacter" resultType="kr.co.survivor.vo.CharacterVO">
 		SELECT * FROM `character` WHERE `type` = 'character' LIMIT #{num},5;
 	</select>
@@ -15,4 +14,16 @@
   	<select id="selectEquip" resultType="kr.co.survivor.vo.CharacterVO">
 		SELECT * FROM `character` WHERE `type` = 'equip';
 	</select>	
+	
+	<select id="selectEssence" resultType="kr.co.survivor.vo.EssenceVO">
+		<choose>
+			<when test="type == 'normal'">
+				SELECT SUM(`normal_gold`) AS 'gold',  SUM(`normal_essence`) AS 'essence' FROM `essence` WHERE `eno` BETWEEN #{startLevel} AND #{endLevel};
+			</when>
+			<otherwise>
+				SELECT SUM(`spec_gold`) AS 'gold',  SUM(`spec_essence`) AS 'essence' FROM `essence` WHERE `eno` BETWEEN #{startLevel} AND #{endLevel};
+			</otherwise>
+		</choose>
+	</select>
+	
 </mapper>

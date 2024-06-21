@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import kr.co.survivor.dao.UseDAO;
 import kr.co.survivor.dao.UserDAO;
 import kr.co.survivor.vo.CharacterVO;
+import kr.co.survivor.vo.EssenceVO;
 import kr.co.survivor.vo.UserVO;
 
 @Service
@@ -28,4 +29,7 @@ public class UseService {
 		return dao.selectGen();
 	}
 
+	public EssenceVO selectEssence(String type, int startLevel, int endLevel){
+		return dao.selectEssence(type, startLevel, endLevel);
+	}
 }

@@ -1,11 +1,4 @@
 <th:block th:include="@{_header.html}"/>
-<script>
-	$(document).ready(function(){
-		$('button[class=btnEssence]').click(function(){
-			console.log($('.essence-container > input').length);
-		});
-	});
-</script>
     <main class="calculator-container">
         <section class="instructions">
             <h2>에센스</h2>
@@ -16,9 +9,9 @@
 				<input type="checkbox" value="special"><label>S급 특공대</label>
 			</div>
 			<div class="level">
-				<input type="text" placeholder="start">
+				<input type="text" placeholder="start" class="startLevel">
 				<span>~</span>
-				<input type="text" placeholder="end">
+				<input type="text" placeholder="end" class="endLevel">
 			</div>
 			<button class="btnEssence">계산하기</button>
         </section>

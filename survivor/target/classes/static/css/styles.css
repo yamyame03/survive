@@ -499,7 +499,7 @@ input[type="number"] {
     border-radius: 5px;
 }
 
-.btnPayments, .btnPaymentsCancel, .btnCalculator {
+.btnPayments, .btnPaymentsCancel, .btnCritical {
 	width: 100%;
     margin-top: 10px;
     background-color: #007bff;
@@ -565,13 +565,16 @@ label[for='name'], label[for='email'] {
 }
 
 input[type="text"], input[type="email"] {
-    width: calc(100% - 20px);
-    padding: 10px;
+	width: calc(100% - 20px);
+	padding: 10px;
     margin-bottom: 6px;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
 
+input[name=password], input[name=password-check]{
+	width: calc(100% - 20px);
+}
 
 .pagination {
     margin-top: 20px;
