@@ -22,6 +22,7 @@ public class MemberVO {
 	private String regip;
 	
 	private String email;
+	private String hp;
 	private String provider;
 	private String providerId;
 

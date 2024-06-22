@@ -1,11 +1,6 @@
 <th:block th:include="@{_header.html}"/>
 <script>
-	$(document).ready(function(){
-		$('.btnEmailAuth').click(function(e){
-			alert('dd');
-			e.preventDefault();
-		});
-	});
+
 </script>
     <main class="container">
         <div class="post-list">
@@ -29,9 +24,14 @@
                 </div>
                 <div class="form-group">
                     <label for="confirm-password">이메일</label>
-                    <input type="text" id="email" name="email">
+                    <input type="text" id="email" name="email" placeholder="이메일 입력">
                     <button class="btnEmailAuth">인증하기</button>
-                </div>       
+                </div> 
+				<div class="form-group" name="auth">
+				    <label for="confirm-password">이메일 인증번호 입력</label>
+					<input type="text" id="auth-check" placeholder="인증코드 입력">
+				    <button class="btnAuthCodeCheck">인증확인</button>
+				</div> 				      
                 <div class="form-group">
                     <label for="confirm-password">전화번호</label>
                     <input type="text" id="hp" name="hp" >

@@ -7,6 +7,7 @@ kr\co\survivor\entity\MemberEntity.class
 kr\co\survivor\vo\MemberVO$MemberVOBuilder.class
 kr\co\survivor\controller\UseController.class
 kr\co\survivor\vo\PaymentVO.class
+kr\co\survivor\service\MailService.class
 kr\co\survivor\vo\UserVO.class
 kr\co\survivor\dao\UserDAO.class
 kr\co\survivor\entity\MemberEntity$MemberEntityBuilder.class

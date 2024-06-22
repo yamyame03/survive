@@ -10,6 +10,8 @@
 	set
 		`username` 	= #{username},
 		`password` 	= #{password},
+		`email` 	= #{email},
+		`hp` 		= #{hp},
 		`level`		= 1,
 		`regip` 	= #{regip}; 
   </insert>
