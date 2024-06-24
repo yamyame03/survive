@@ -54,7 +54,7 @@ $(document).ready(function(){
 						authCode_check(authCode, function(isCheck){
 							if(isCheck == "true"){
 								alert("인증번호가 일치합니다.");
-								$('div[name=auth]').css("display","none");
+								$('div[name=email-auth]').css("display","none");
 								isEmailOk = true;
 							} else {
 								alert("인증번호가 일치하지 않습니다.");

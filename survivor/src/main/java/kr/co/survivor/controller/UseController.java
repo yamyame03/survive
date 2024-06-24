@@ -26,6 +26,7 @@ import kr.co.survivor.vo.CharacterVO;
 import kr.co.survivor.vo.EssenceVO;
 import kr.co.survivor.vo.MemberVO;
 import kr.co.survivor.vo.UserVO;
+import net.nurigo.sdk.message.response.SingleMessageSentResponse;
 
 @Controller
 public class UseController {
@@ -92,15 +93,27 @@ public class UseController {
 	@GetMapping("/HpMesaageAuth")
 	public String hpMessageAuth(@RequestParam String hp) {
 		
+		HashMap<String, String> map = new HashMap<>();
         Random rand = new Random();
+        
         String randomNum = "";
         for (int i = 0; i < 4; i++) {
             String random = Integer.toString(rand.nextInt(10));
             randomNum += random;
         }
 		
-		messageService.sendOn(hp, randomNum);
-		
+        SingleMessageSentResponse data = messageService.sendOn(hp, randomNum);
+        
+        String statusCode = data.getStatusCode();
+        
+        System.out.println(data);
+        
+        if("2000".equals(statusCode)) {
+        	System.out.println("true");
+        }else {
+        	System.out.println("false");
+        }
+        
 		return "";
 	}
 }
