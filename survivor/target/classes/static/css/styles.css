@@ -199,8 +199,13 @@ a:hover {
     border-radius: 4px;
 }
 
-div[name=auth] {
+div[name=email-auth], div[name=hp-auth] {
 	display: none;
+}
+
+.btnSignUp {
+	width: 100%;
+	height: 50px;
 }
 
 .signup-form .btn {

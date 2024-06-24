@@ -1,5 +1,39 @@
 <th:block th:include="@{_header.html}"/>
 <script>
+	$(document).ready(function(){
+		$('.btnHpAuth').click(function(e){
+			e.preventDefault();
+			
+			let hp = $('#hp').val();
+			
+			if(hp == ''){
+				alert("전화번호를 입력해주세요.");
+			}else{
+				alert("인증코드 전송..!");
+				$('div[name=hp-auth]').css("display","block");
+			
+				let jsonData = {'hp' : hp};
+				
+				$.ajax({
+					url : '/Survivor.io/HpMesaageAuth',
+					method : 'GET',
+					data : jsonData,
+					dataType : 'JSON',
+					success : function(data){
+						console.log(data);
+						if(data['result'] == 'success'){
+							
+							
+							
+						}
+					},
+					error : function(error){
+						console.log(error);
+					}
+				});
+			}
+		});
+	});
 
 </script>
     <main class="container">
@@ -23,21 +57,26 @@
                     <input type="password" id="confirm-password" name="password-check">
                 </div>
                 <div class="form-group">
-                    <label for="confirm-password">이메일</label>
+                    <label for="confirm-email">이메일</label>
                     <input type="text" id="email" name="email" placeholder="이메일 입력">
                     <button class="btnEmailAuth">인증하기</button>
                 </div> 
-				<div class="form-group" name="auth">
-				    <label for="confirm-password">이메일 인증번호 입력</label>
-					<input type="text" id="auth-check" placeholder="인증코드 입력">
-				    <button class="btnAuthCodeCheck">인증확인</button>
+				<div class="form-group" name="email-auth">
+				    <label for="confirm-email">이메일 인증번호 입력</label>
+					<input type="text" id="email-auth-check" placeholder="인증코드 입력">
+				    <button class="btnEmailAuthCodeCheck">인증확인</button>
 				</div> 				      
                 <div class="form-group">
-                    <label for="confirm-password">전화번호</label>
+                    <label for="confirm-hp">전화번호</label>
                     <input type="text" id="hp" name="hp" >
                     <button class="btnHpAuth">인증하기</button>
-                </div>                           
-                <button type="submit" class="btn">회원가입</button>
+                </div>     
+				<div class="form-group" name="hp-auth">
+				    <label for="confirm-hp">휴대폰 인증번호 입력</label>
+					<input type="text" id="hp-auth-check" placeholder="인증코드 입력">
+				    <button class="btnHpAuthCodeCheck">인증확인</button>
+				</div>                                       
+                <button type="submit" class="btnSignUp">회원가입</button>
             </form>
         </div>
     </main>

@@ -4,6 +4,10 @@ import lombok.Data;
 
 @Data
 public class ApiKeyVO {
-	private String apiKey;
-	private String secretKey;
+	private String portOneApiKey;
+	private String portOneSecretKey;
+	private String coolSmsApiKey;
+	private String coolSmsSecretKey;
+	private String fromPhoneNumber;
+	private String sendMsgContent;
 }

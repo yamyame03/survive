@@ -58,8 +58,8 @@ public class ProductService {
 		
 		ApiKeyVO keys = selectApiKey();
 		
-		String apiKey = keys.getApiKey();
-		String secretKey = keys.getSecretKey();
+		String apiKey = keys.getPortOneApiKey();
+		String secretKey = keys.getPortOneSecretKey();
 		
         URL url = new URL("https://api.iamport.kr/users/getToken");
         HttpsURLConnection conn = (HttpsURLConnection) url.openConnection();

@@ -3,6 +3,7 @@ package kr.co.survivor.controller;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
@@ -19,6 +20,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import kr.co.survivor.service.UseService;
 import kr.co.survivor.service.MemberService;
+import kr.co.survivor.service.MessageService;
 import kr.co.survivor.service.UserService;
 import kr.co.survivor.vo.CharacterVO;
 import kr.co.survivor.vo.EssenceVO;
@@ -31,8 +33,15 @@ public class UseController {
 	@Autowired
 	private UseService useService;
 	
+	@Autowired
+	private MessageService messageService;
+	
 	@GetMapping("/use")
-	public String user(Model model) {
+	public String use(Model model) {
+		
+//		String to = "01043900810";
+//		messageService.sendOn(to);
+		
 		return "views/use/use";
 	}
 	
@@ -77,5 +86,21 @@ public class UseController {
 		
 		return "views/use/critical";
 	}
-
+	
+	
+	@ResponseBody
+	@GetMapping("/HpMesaageAuth")
+	public String hpMessageAuth(@RequestParam String hp) {
+		
+        Random rand = new Random();
+        String randomNum = "";
+        for (int i = 0; i < 4; i++) {
+            String random = Integer.toString(rand.nextInt(10));
+            randomNum += random;
+        }
+		
+		messageService.sendOn(hp, randomNum);
+		
+		return "";
+	}
 }
