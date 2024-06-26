@@ -50,12 +50,16 @@ public class MemberController {
 	
 	@ResponseBody
 	@GetMapping("/emailAuth")
-	public boolean emailAuth(@RequestParam String userEmail, @RequestParam String authCode) {
+	public Map<String, Object> emailAuth(@RequestParam String userEmail, @RequestParam String authCode) {
+		HashMap<String, Object> map = new HashMap<>();
 		boolean check = mailService.sendSimpleEmail(userEmail, authCode);
 		if(check == true) {
-			return check;
+			map.put("result", check);
+			map.put("authCode", authCode);
+			return map;
 		}else {
-			return check;
+			map.put("result", check);
+			return map;
 		}
 	}
 	

@@ -1,19 +1,19 @@
 <th:block th:include="@{_header.html}"/>
 <script>
 $(document).ready(function(){
+    let resultCode = ''; // 전역 변수로 resultCode 선언
+
     $('.btnEmailAuth').click(function(e){
         e.preventDefault();
         let userEmail = $('#email').val();
         let authCode = make_AuthCode();
         
-        if(userEmail == ''){
-            alert("이메일을 입력해주세요.");
-        } else {
+        if(userEmail != ''){
             alert("인증코드 전송..!");
             $('div[name=email-auth]').css("display","block");
             let jsonData = {
                 'userEmail' : userEmail,
-                'authCode' : authCode
+                'authCode'   : authCode
             };
             
             console.log("인증 코드는 .. " + authCode);
@@ -24,12 +24,26 @@ $(document).ready(function(){
                 data : jsonData,
                 dataType : 'JSON',
                 success : function(data){
-					
+                	resultCode = data['authCode']; // 최신의 인증 코드 값을 설정
                 }
             });
+            
+        } else {
+        	alert("이메일을 입력해주세요.");
         }
-    });		
-	
+    });
+    
+    // 확인 버튼 클릭 이벤트 핸들러 등록
+    $(document).on('click', '.btnEmailAuthCodeCheck', function(e){
+        e.preventDefault();
+        console.log(resultCode); // 최신의 resultCode 값을 출력하거나 사용
+    });
+    
+    
+    
+    
+    
+	/*
 	$('.btnHpAuth').click(function(e){
 		e.preventDefault();
 		
@@ -68,6 +82,7 @@ $(document).ready(function(){
 			});
 		}
 	});
+	*/
 });
 
 </script>
